@@ -3,7 +3,8 @@ import
 { requestGetCurrentUser,
   requestLogOut,
   requestSignIn, 
-  requestSignUp } from "../../services/authServices";
+  requestSignUp, 
+  setToken} from "../../services/authServices";
 
 
 
