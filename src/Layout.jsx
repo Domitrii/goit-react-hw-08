@@ -5,7 +5,7 @@ const Layout = ({children}) => {
     <div>
       <AppBar />
       <main>
-        <p fallback={null}>{children}</p>
+        {children}
       </main>
     </div>
   )

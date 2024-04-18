@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { register } from '../../redux/auth/operations'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
+import css from './RegistrationForm.module.css'
 
 
 const INITIAL_STATE = {
@@ -26,23 +27,23 @@ function RegistrationForm() {
 
   return (
     <Formik initialValues={INITIAL_STATE} onSubmit={handleSubmit} validationSchema={registerScheme}>
-      <Form>
-        <label>
+      <Form className={css.registerForm}>
+        <label className={css.labels}>
           Name
           <Field type="text" name="name"></Field>
           <ErrorMessage name="name" component="span" />
         </label>
-        <label>
+        <label className={css.labels}>
           Email
           <Field type="email" name="email"></Field>
           <ErrorMessage name="email" component="span" />
         </label>
-        <label>
+        <label className={css.labels}>
           Password
           <Field type="password" name="password"></Field>
           <ErrorMessage name="password" component="span" />
         </label>
-        <button type='submit'>Sign Up</button>
+        <button type='submit' className={css.signBtn}>Sign Up</button>
       </Form>
     </Formik>
   )
