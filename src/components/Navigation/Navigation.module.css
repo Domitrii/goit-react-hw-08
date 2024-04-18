@@ -1,0 +1,14 @@
+.homeText{
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}
+
+.homeText:hover{
+    color: #6996ff
+}
+
+.contUser{
+    display: flex;
+    gap: 15px;
+}

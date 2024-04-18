@@ -1,0 +1,18 @@
+ul{
+    list-style-type: none;
+}
+
+.findeContact{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.valueBlock{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.searchPlace{
+    width: 372px;
+}

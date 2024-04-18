@@ -1,0 +1,14 @@
+.registrPlace{
+    display: flex;
+    gap: 20px;
+}
+
+.regAndLog{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.regAndLog:hover{
+    color: #6996ff
+}

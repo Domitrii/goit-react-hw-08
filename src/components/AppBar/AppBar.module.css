@@ -1,0 +1,6 @@
+.appBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 5px;
+    border-bottom: 1px solid #000 ;
+}

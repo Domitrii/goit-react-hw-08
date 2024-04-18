@@ -1,0 +1,19 @@
+.logout{
+    height: 22px;
+}
+
+.welcomeUser{
+    margin: 0;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.userName{
+    color: rgb(184, 93, 74);
+    font-size: 20px;
+}
+
+.userCont{
+    display: flex;
+    justify-content: end;
+}
