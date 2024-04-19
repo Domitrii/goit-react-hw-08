@@ -2,8 +2,9 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import css from './ContactForm.module.css'
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import { selectContacts } from "../../redux/contacts/selectors";
 
 const numberScheme = Yup.object().shape({
     name: Yup.string()
