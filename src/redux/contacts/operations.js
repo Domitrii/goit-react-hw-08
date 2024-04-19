@@ -18,14 +18,11 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
     'contacts/addContact',  
     async (newContact, thunkApi) => {
-        try {
-            const data = await postContact(newContact);
-            const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
-            const updatedContacts = [...storedContacts, data];
-            localStorage.setItem('contacts', JSON.stringify(updatedContacts));
-            return data;
+        try{
+            const data = await postContact(newContact)
+            return data
         } catch (error) {
-            return thunkApi.rejectWithValue(error.message);
+            return thunkApi.rejectWithValue(error.message)
         }
     }
 )
@@ -33,14 +30,11 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
     'contacts/deleteContact',  
     async (contactId, thunkApi) => {
-        try {
-            await removeContact(contactId);
-            const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
-            const updatedContacts = storedContacts.filter(contact => contact.id !== contactId);
-            localStorage.setItem('contacts', JSON.stringify(updatedContacts));
-            return contactId;
+        try{
+            const data = await removeContact(contactId)
+            return data
         } catch (error) {
-            return thunkApi.rejectWithValue(error.message);
+            return thunkApi.rejectWithValue(error.message)
         }
     }
 )

@@ -7,7 +7,7 @@ import
   setToken} from "../../services/authServices";
 
 
-export const register = createAsyncThunk(
+  export const register = createAsyncThunk(
     "auth/register",
     async (formData, thunkAPI) => {
       try {
@@ -18,8 +18,8 @@ export const register = createAsyncThunk(
       }
     }
   );
-
-export const login = createAsyncThunk(
+  
+  export const login = createAsyncThunk(
     "auth/login",
     async (formData, thunkAPI) => {
       try {
@@ -30,19 +30,18 @@ export const login = createAsyncThunk(
       }
     }
   );
-
-export const logout = createAsyncThunk(
+  
+  export const logout = createAsyncThunk(
     "auth/logout",
-    async (thunkAPI) => {
-      try {
-        const data = await requestLogOut();
-        return data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+     async (_, thunkAPI) => {
+    try {
+      await requestLogOut();
+      return;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
-
+  });
+  
   export const refreshUser = createAsyncThunk(
     "auth/refresh",
     async (_, thunkAPI) => {
@@ -60,3 +59,4 @@ export const logout = createAsyncThunk(
       }
     }
   );
+  
