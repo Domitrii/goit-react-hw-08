@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { lazy, useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { fetchContacts } from './redux/contacts/operations'
 import { selectIsRefreshing } from './redux/auth/selectors'
 import Layout from './Layout'
@@ -24,6 +24,7 @@ function App() {
     <b>Refreshing</b>
   ) : (
     <Layout>
+      <Suspense>
       <Routes>
         <Route path='/' element={<HomePage />} />
          <Route
@@ -44,6 +45,7 @@ function App() {
             <PrivateRoute redirectTo='/login' component={<ContactsPage />} />
            } />
       </Routes>
+      </Suspense>
     </Layout>
   )
 }
