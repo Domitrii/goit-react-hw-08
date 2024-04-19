@@ -29,8 +29,8 @@ const contactsSlice = createSlice({
         .addCase(deleteContact.fulfilled, (state, action) => {
           state.loading = false;
           state.items = state.items.filter(({ id }) => id !== action.payload);
-        })
-        .addCase(logout.fulfilled, (state, action) => {
+        }) 
+        .addCase(logout.fulfilled, (state) => {
           state.error = null;
           state.loading = false;
           state.items = [];

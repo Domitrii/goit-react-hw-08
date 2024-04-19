@@ -7,8 +7,6 @@ import
   setToken} from "../../services/authServices";
 
 
-
-
 export const register = createAsyncThunk(
     "auth/register",
     async (formData, thunkAPI) => {
