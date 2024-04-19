@@ -16,9 +16,9 @@ const logInState = Yup.object().shape({
 
 function LoginForm() {
     const dispatch = useDispatch()
-    const handleSubmit = (e, formActions) => {
+    const handleSubmit = (e, {resetForm}) => {
         dispatch(login(e))
-        formActions.resetForm()
+        resetForm()
     }
 
   return (
