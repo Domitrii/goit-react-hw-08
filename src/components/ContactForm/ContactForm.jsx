@@ -2,8 +2,10 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import css from './ContactForm.module.css'
 import InputMask from 'react-input-mask';
 import * as Yup from 'yup'
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import { selectContacts } from "../../redux/contacts/selectors";
+import { Toaster, toast } from "react-hot-toast";
 
 const numberScheme = Yup.object().shape({
     name: Yup.string()
@@ -23,14 +25,33 @@ const numberScheme = Yup.object().shape({
   }
 
 function ContactForm() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const currentContactsArray = useSelector(selectContacts) || [];
 
-    const handleSubmit = (values, {resetForm}) => {
-        dispatch(addContact(values));
-        resetForm();
-      };
+  const handleSubmit = (data, formActions) => {
+    const isAlreadyAdded = currentContactsArray.find(
+      (item) =>
+        item.name.toLowerCase() === data.name.toLowerCase() ||
+        item.number === data.number
+    );
+    if (isAlreadyAdded) {
+      toast('This numbers is in your ContactList')
+      return;
+    }
+    dispatch(addContact(data));
+    formActions.resetForm();
+  };
 
   return (
+    <>
+    <Toaster
+        toastOptions={{
+          style: {
+            background: "pink",
+            color: "black",
+          },
+        }}
+      />
     <Formik 
       initialValues={firstVal}
       onSubmit={handleSubmit}
@@ -60,6 +81,7 @@ function ContactForm() {
             <button type="submit" className={css.submitBtn}>Submit</button>
         </Form>
     </Formik>
+    </>
   )
 }
 

@@ -24,13 +24,13 @@ export const requestSignIn = async (formData) => {
     return data
 }
 
-export const requestGetCurrentUser = async () => {
-    const {data} = await instance.get('/users/current')
-    return data
-}
-
 export const requestLogOut = async () => {
     const {data} = await instance.post('/users/logout')
     removeToken()
+    return data
+}
+
+export const requestGetCurrentUser = async () => {
+    const {data} = await instance.get('/users/current')
     return data
 }

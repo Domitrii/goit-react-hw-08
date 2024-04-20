@@ -1,9 +1,9 @@
 import { instance } from "./authServices"
 
 export const getContacts = async () => {
-    const {data} = await instance.get('/contacts')
-    return data
-}
+    const { data } = await instance.get("/contacts");
+    return data;
+  };
 
 export const postContact = async (formData) => {
     const {data} = await instance.post('/contacts', formData)

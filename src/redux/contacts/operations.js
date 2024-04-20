@@ -4,37 +4,37 @@ import { getContacts, postContact, removeContact } from "../../services/contactS
 
 
 export const fetchContacts = createAsyncThunk(
-    'contacts/fetchAll',  
-    async (_, thunkApi) => {
-        try{
-            const {data} = await getContacts()
-            return data
-        } catch (error) {
-            return thunkApi.rejectWithValue(error.message)
-        }
+    "contacts/fetchAll",
+    async (_, thunkAPI) => {
+      try {
+        const data = await getContacts();
+        return data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
-)
+  );
 
 export const addContact = createAsyncThunk(
     'contacts/addContact',  
-    async (newContact, thunkApi) => {
+    async (newContact, thunkAPI) => {
         try{
             const data = await postContact(newContact)
             return data
         } catch (error) {
-            return thunkApi.rejectWithValue(error.message)
+            return thunkAPI.rejectWithValue(error.message)
         }
     }
 )
 
 export const deleteContact = createAsyncThunk(
     'contacts/deleteContact',  
-    async (contactId, thunkApi) => {
+    async (contactId, thunkAPI) => {
         try{
             const data = await removeContact(contactId)
             return data
         } catch (error) {
-            return thunkApi.rejectWithValue(error.message)
+            return thunkAPI.rejectWithValue(error.message)
         }
     }
 )
